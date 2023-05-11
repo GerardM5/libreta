@@ -10,27 +10,28 @@ import java.util.List;
 public class UsersServiceImpl implements UsersService {
 
 
-    List<User> users = new ArrayList<>(
-            List.of(new User(1, "pablo", "Mata"),
-                    new User(2, "Gerard", "Martinez"),
-                    new User(3, "Celeste", "Cañete")));
+ //   List<User> users = new ArrayList<>(
+//            List.of(new User(1, "pablo", "Mata"),
+//                    new User(2, "Gerard", "Martinez"),
+//                    new User(3, "Celeste", "Cañete")));
 
 
     @Override
     public User getUserById(long id) {
 
-        for (User user : users) {
+/*        for (User user : users) {
             if (user.getId() == id) {
                 return user;
             }
-        }
+        }*/
 
         return null;
     }
 
     @Override
     public List<User> getAllUsers() {
-        return users;
+        //return users;
+        return null;
     }
 
     @Override

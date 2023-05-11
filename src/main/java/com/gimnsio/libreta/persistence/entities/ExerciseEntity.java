@@ -1,6 +1,5 @@
 package com.gimnsio.libreta.persistence.entities;
 
-import com.gimnsio.libreta.domain.Muscle;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -10,12 +9,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
 
-@Data
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity(name="exercise")
+@Data
 public class ExerciseEntity {
     @NotNull
     @Id
@@ -30,6 +29,5 @@ public class ExerciseEntity {
     @NotNull
     private String type;
     @NotNull
-    private Muscle principalMuscle;
-    private List<Muscle> secondaryMuscles;
+    private Long principalMuscle;
 }

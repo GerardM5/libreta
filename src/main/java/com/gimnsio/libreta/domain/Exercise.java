@@ -22,6 +22,5 @@ public class Exercise {
     @NotNull
     private String type;
     @NotNull
-    private Muscle principalMuscle;
-    private List<Muscle> secondaryMuscles;
+    private Long principalMuscle;
 }

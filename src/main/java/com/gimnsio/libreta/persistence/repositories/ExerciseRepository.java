@@ -11,9 +11,9 @@ import java.util.List;
 @Repository
 public interface ExerciseRepository extends JpaRepository<ExerciseEntity, Long> {
 
-    public List<ExerciseEntity> findByType(String type, Pageable pageable);
-
-    public List<ExerciseEntity> findByMuscle(Long muscle_id, Pageable pageable);
-
-    public List<ExerciseEntity> findByMuscleAndType(Long muscleId, String type, Pageable pageable);
+//    public List<ExerciseEntity> findByType(String type, Pageable pageable);
+//
+//    public List<ExerciseEntity> findByMuscle(Long muscle_id, Pageable pageable);
+//
+//    public List<ExerciseEntity> findByMuscleAndType(Long muscleId, String type, Pageable pageable);
 }

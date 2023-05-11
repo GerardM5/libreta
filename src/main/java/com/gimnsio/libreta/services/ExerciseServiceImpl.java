@@ -17,6 +17,11 @@ public class ExerciseServiceImpl implements ExerciseService{
 
     ExerciseMapper exerciseMapper;
 
+    public ExerciseServiceImpl(ExerciseRepository exerciseRepository, ExerciseMapper exerciseMapper){
+        this.exerciseRepository=exerciseRepository;
+        this.exerciseMapper=exerciseMapper;
+    }
+
     @Override
     public List<Exercise> getAllExercises(Pageable pageable) {
 
@@ -32,22 +37,25 @@ public class ExerciseServiceImpl implements ExerciseService{
 
     @Override
     public List<Exercise> getExercisesByType(String type,Pageable pageable) {
-        return this.exerciseRepository.findByType(type,pageable).stream().map(exerciseEntity -> {
-            return exerciseMapper.mapExercise(exerciseEntity);
-        }).collect(Collectors.toList());
+//        return this.exerciseRepository.findByType(type,pageable).stream().map(exerciseEntity -> {
+//            return exerciseMapper.mapExercise(exerciseEntity);
+//        }).collect(Collectors.toList());
+        return null;
     }
 
     @Override
     public List<Exercise> getExercisesByMuscle(Long muscleId, Pageable pageable) {
-        return this.exerciseRepository.findByMuscle(muscleId,pageable).stream().map(exerciseEntity -> {
-            return exerciseMapper.mapExercise(exerciseEntity);
-        }).collect(Collectors.toList());
+//        return this.exerciseRepository.findByMuscle(muscleId,pageable).stream().map(exerciseEntity -> {
+//            return exerciseMapper.mapExercise(exerciseEntity);
+//        }).collect(Collectors.toList());
+        return null;
     }
 
     @Override
     public List<Exercise> getExercisesByMuscleAndType(Long muscleId, String type, Pageable pageable) {
-        return this.exerciseRepository.findByMuscleAndType(muscleId,type,pageable).stream().map(exerciseEntity -> {
-            return exerciseMapper.mapExercise(exerciseEntity);
-        }).collect(Collectors.toList());
+//        return this.exerciseRepository.findByMuscleAndType(muscleId,type,pageable).stream().map(exerciseEntity -> {
+//            return exerciseMapper.mapExercise(exerciseEntity);
+//        }).collect(Collectors.toList());
+        return null;
     }
 }
