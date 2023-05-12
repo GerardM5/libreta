@@ -1,13 +1,17 @@
 package com.gimnsio.libreta.Mapper;
 
 import com.gimnsio.libreta.domain.Exercise;
+import com.gimnsio.libreta.domain.Muscle;
 import com.gimnsio.libreta.persistence.entities.ExerciseEntity;
+import com.gimnsio.libreta.persistence.entities.MuscleEntity;
+import java.util.LinkedHashSet;
+import java.util.Set;
 import javax.annotation.processing.Generated;
 import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-05-02T18:41:32+0200",
+    date = "2023-05-11T20:51:36+0200",
     comments = "version: 1.5.3.Final, compiler: javac, environment: Java 17.0.7 (Amazon.com Inc.)"
 )
 @Component
@@ -28,7 +32,8 @@ public class ExerciseMapperImpl implements ExerciseMapper {
         exercise.setVideo( exerciseEntity.getVideo() );
         exercise.setDescription( exerciseEntity.getDescription() );
         exercise.setType( exerciseEntity.getType() );
-        exercise.setPrincipalMuscle( exerciseEntity.getPrincipalMuscle() );
+        exercise.setPrincipalMuscle( muscleEntityToMuscle( exerciseEntity.getPrincipalMuscle() ) );
+        exercise.setSecondaryMuscles( muscleEntitySetToMuscleSet( exerciseEntity.getSecondaryMuscles() ) );
 
         return exercise;
     }
@@ -48,8 +53,65 @@ public class ExerciseMapperImpl implements ExerciseMapper {
         exerciseEntity.setVideo( exercise.getVideo() );
         exerciseEntity.setDescription( exercise.getDescription() );
         exerciseEntity.setType( exercise.getType() );
-        exerciseEntity.setPrincipalMuscle( exercise.getPrincipalMuscle() );
+        exerciseEntity.setPrincipalMuscle( muscleToMuscleEntity( exercise.getPrincipalMuscle() ) );
+        exerciseEntity.setSecondaryMuscles( muscleSetToMuscleEntitySet( exercise.getSecondaryMuscles() ) );
 
         return exerciseEntity;
+    }
+
+    protected Muscle muscleEntityToMuscle(MuscleEntity muscleEntity) {
+        if ( muscleEntity == null ) {
+            return null;
+        }
+
+        Muscle muscle = new Muscle();
+
+        muscle.setId( muscleEntity.getId() );
+        muscle.setName( muscleEntity.getName() );
+        muscle.setImage( muscleEntity.getImage() );
+        muscle.setMuscleGroup( muscleEntity.getMuscleGroup() );
+
+        return muscle;
+    }
+
+    protected Set<Muscle> muscleEntitySetToMuscleSet(Set<MuscleEntity> set) {
+        if ( set == null ) {
+            return null;
+        }
+
+        Set<Muscle> set1 = new LinkedHashSet<Muscle>( Math.max( (int) ( set.size() / .75f ) + 1, 16 ) );
+        for ( MuscleEntity muscleEntity : set ) {
+            set1.add( muscleEntityToMuscle( muscleEntity ) );
+        }
+
+        return set1;
+    }
+
+    protected MuscleEntity muscleToMuscleEntity(Muscle muscle) {
+        if ( muscle == null ) {
+            return null;
+        }
+
+        MuscleEntity muscleEntity = new MuscleEntity();
+
+        muscleEntity.setId( muscle.getId() );
+        muscleEntity.setName( muscle.getName() );
+        muscleEntity.setImage( muscle.getImage() );
+        muscleEntity.setMuscleGroup( muscle.getMuscleGroup() );
+
+        return muscleEntity;
+    }
+
+    protected Set<MuscleEntity> muscleSetToMuscleEntitySet(Set<Muscle> set) {
+        if ( set == null ) {
+            return null;
+        }
+
+        Set<MuscleEntity> set1 = new LinkedHashSet<MuscleEntity>( Math.max( (int) ( set.size() / .75f ) + 1, 16 ) );
+        for ( Muscle muscle : set ) {
+            set1.add( muscleToMuscleEntity( muscle ) );
+        }
+
+        return set1;
     }
 }

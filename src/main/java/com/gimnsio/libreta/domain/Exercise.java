@@ -1,11 +1,13 @@
 package com.gimnsio.libreta.domain;
 
+import com.gimnsio.libreta.persistence.entities.MuscleEntity;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -22,5 +24,6 @@ public class Exercise {
     @NotNull
     private String type;
     @NotNull
-    private Long principalMuscle;
+    private Muscle principalMuscle;
+    private Set<Muscle> secondaryMuscles;
 }
