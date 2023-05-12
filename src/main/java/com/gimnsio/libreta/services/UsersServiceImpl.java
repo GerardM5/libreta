@@ -1,20 +1,25 @@
 package com.gimnsio.libreta.services;
 
+import com.gimnsio.libreta.Mapper.UserMapper;
 import com.gimnsio.libreta.domain.User;
+import com.gimnsio.libreta.persistence.repositories.UserRepository;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class UsersServiceImpl implements UsersService {
 
+    private UserRepository userRepository;
+    private UserMapper userMapper;
 
- //   List<User> users = new ArrayList<>(
-//            List.of(new User(1, "pablo", "Mata"),
-//                    new User(2, "Gerard", "Martinez"),
-//                    new User(3, "Celeste", "Cañete")));
-
+    public UsersServiceImpl(UserRepository userRepository,UserMapper userMapper) {
+        this.userRepository = userRepository;
+        this.userMapper = userMapper;
+    }
 
     @Override
     public User getUserById(long id) {
@@ -29,9 +34,11 @@ public class UsersServiceImpl implements UsersService {
     }
 
     @Override
-    public List<User> getAllUsers() {
+    public List<User> getAllUsers(Pageable pageable) {
         //return users;
-        return null;
+        return userRepository.findAll(pageable).stream().map(userEntity -> {
+            return userMapper.mapUser(userEntity);
+        }).collect(Collectors.toList());
     }
 
     @Override

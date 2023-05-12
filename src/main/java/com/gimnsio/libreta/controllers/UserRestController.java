@@ -3,6 +3,8 @@ package com.gimnsio.libreta.controllers;
 import com.gimnsio.libreta.domain.User;
 import com.gimnsio.libreta.services.UsersService;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,8 +33,12 @@ public class UserRestController {
     ));*/
 
     @GetMapping
-    public List<User> listUsers(){
-        return null;
+    public ResponseEntity<?> getAllUsers(
+            @PageableDefault(size = 5)
+            Pageable pageable){
+
+        return ResponseEntity.ok(this.usersService.getAllUsers(pageable));
+
     }
 
     @GetMapping("/{id}")
