@@ -1,3 +1,10 @@
 # Default ignored files
 /shelf/
 /workspace.xml
+
+# Archivos y directorios generados por Maven
+target/
+
+# Otros archivos y directorios generados
+*.class
+*.jar
