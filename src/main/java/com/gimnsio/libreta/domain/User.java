@@ -16,7 +16,7 @@ public class User {
     private Long id;
     private Long role;
     private String name;
-    private String mail;
+    private String email;
     private String password;
     //private List<Routine> routines;
 

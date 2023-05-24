@@ -9,7 +9,10 @@ public interface ExerciseService {
 
     public List<Exercise> getAllExercises(Pageable pageable);
 
+
     public Exercise getExerciseById(Long id);
+
+    public Exercise updateExercise(Long exerciseId, Exercise updatedExercise);
 
     public List<Exercise> getExercisesByType(String type, Pageable pageable);
 

@@ -24,14 +24,6 @@ public class UserRestController {
         this.usersService = usersService;
     }
 
-    //Almacen provisional
-/*    ArrayList<User>users = new ArrayList<>(
-            List.of(new User(1,"pablo","Mata"),
-                    new User(2,"Gerard", "Martinez"),
-                    new User(3,"Celeste", "Cañete")
-
-    ));*/
-
     @GetMapping
     public ResponseEntity<?> getAllUsers(
             @PageableDefault(size = 5)
@@ -43,21 +35,22 @@ public class UserRestController {
 
     @GetMapping("/{id}")
     public ResponseEntity<?> getUserById(@PathVariable long id){
-
-        //return this.usersService.getUserById(id);
-
         return ResponseEntity.ok(usersService.getUserById(id));
     }
     @PostMapping
     public ResponseEntity<?> createUser(@RequestBody User user){
-        usersService.createUser(user);
-        return ResponseEntity.ok(user);
+        return ResponseEntity.ok(usersService.createUser(user));
     }
 
-    @PostMapping("/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<?> editUser(@RequestBody User user, @PathVariable Long id){
-        User user1 = usersService.updateUser(id,user);
-        return ResponseEntity.ok(user1);
+        return ResponseEntity.ok(usersService.updateUser(id,user));
+    }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
+        usersService.deleteUser(id);
+        return ResponseEntity.noContent().build();
     }
 
 

@@ -1,14 +1,12 @@
 package com.gimnsio.libreta.controllers;
 
+import com.gimnsio.libreta.domain.Exercise;
 import com.gimnsio.libreta.services.ExerciseService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/exercises")
@@ -55,6 +53,10 @@ public class ExerciseRestController {
                                                          @PathVariable String type,
                                                          @PageableDefault(size=5) Pageable pageable){
         return ResponseEntity.ok(exerciseService.getExercisesByMuscleAndType(muscleId,type,pageable));
+    }
+    @PutMapping("/{id}")
+    public ResponseEntity<Exercise> updateExercise(@PathVariable Long id, @RequestBody Exercise exercise){
+        return ResponseEntity.ok(exerciseService.updateExercise(id,exercise));
     }
 
 

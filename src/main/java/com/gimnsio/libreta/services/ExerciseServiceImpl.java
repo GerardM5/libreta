@@ -69,4 +69,24 @@ public class ExerciseServiceImpl implements ExerciseService {
 //        }).collect(Collectors.toList());
         return null;
     }
+
+    @Override
+    public Exercise updateExercise(Long exerciseId, Exercise updatedExercise) {
+        Optional<ExerciseEntity> exerciseEntityOptional = exerciseRepository.findById(exerciseId);
+
+        if (exerciseEntityOptional.isPresent()) {
+            ExerciseEntity exerciseEntity = exerciseEntityOptional.get();
+
+            exerciseEntity.setName(updatedExercise.getName());
+            exerciseEntity.setDescription(updatedExercise.getDescription());
+            // TODO Actualizar todos los campos de ejercicio
+
+            ExerciseEntity updatedExerciseEntity = exerciseRepository.save(exerciseEntity);
+            return exerciseMapper.mapExercise(updatedExerciseEntity);
+        } else {
+            throw new NoSuchElementException("No se encontró el ejercicio con el ID: " + exerciseId);
+        }
+    }
+
+
 }
