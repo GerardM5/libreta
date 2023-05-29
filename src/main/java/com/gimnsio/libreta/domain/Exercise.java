@@ -13,17 +13,13 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Exercise {
-    @NotNull
     private Long id;
-    @NotNull
     private String name;
     private String image;
     private String gif;
     private String video;
     private String description;
-    @NotNull
     private String type;
-    @NotNull
     private Muscle principalMuscle;
     private Set<Muscle> secondaryMuscles;
 }

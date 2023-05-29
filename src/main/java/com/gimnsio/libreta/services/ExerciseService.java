@@ -14,9 +14,13 @@ public interface ExerciseService {
 
     public Exercise updateExercise(Long exerciseId, Exercise updatedExercise);
 
-    public List<Exercise> getExercisesByType(String type, Pageable pageable);
+    public Exercise createExercise(Exercise exercise);
 
-    public List<Exercise> getExercisesByMuscle(Long muscle_id, Pageable pageable);
+    public void deleteExercise(Long id);
 
-    public List<Exercise> getExercisesByMuscleAndType(Long muscleId, String type, Pageable pageable);
+//    public List<Exercise> getExercisesByType(String type, Pageable pageable);
+//
+//    public List<Exercise> getExercisesByMuscle(Long muscle_id, Pageable pageable);
+//
+//    public List<Exercise> getExercisesByMuscleAndType(Long muscleId, String type, Pageable pageable);
 }

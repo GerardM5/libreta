@@ -46,45 +46,55 @@ public class ExerciseServiceImpl implements ExerciseService {
         }
     }
 
-    @Override
-    public List<Exercise> getExercisesByType(String type, Pageable pageable) {
-//        return this.exerciseRepository.findByType(type,pageable).stream().map(exerciseEntity -> {
-//            return exerciseMapper.mapExercise(exerciseEntity);
-//        }).collect(Collectors.toList());
-        return null;
-    }
+//    @Override
+//    public List<Exercise> getExercisesByType(String type, Pageable pageable) {
+////        return this.exerciseRepository.findByType(type,pageable).stream().map(exerciseEntity -> {
+////            return exerciseMapper.mapExercise(exerciseEntity);
+////        }).collect(Collectors.toList());
+//        return null;
+//    }
+//
+//    @Override
+//    public List<Exercise> getExercisesByMuscle(Long muscleId, Pageable pageable) {
+////        return this.exerciseRepository.findByMuscle(muscleId,pageable).stream().map(exerciseEntity -> {
+////            return exerciseMapper.mapExercise(exerciseEntity);
+////        }).collect(Collectors.toList());
+//        return null;
+//    }
+//
+//    @Override
+//    public List<Exercise> getExercisesByMuscleAndType(Long muscleId, String type, Pageable pageable) {
+////        return this.exerciseRepository.findByMuscleAndType(muscleId,type,pageable).stream().map(exerciseEntity -> {
+////            return exerciseMapper.mapExercise(exerciseEntity);
+////        }).collect(Collectors.toList());
+//        return null;
+//    }
 
     @Override
-    public List<Exercise> getExercisesByMuscle(Long muscleId, Pageable pageable) {
-//        return this.exerciseRepository.findByMuscle(muscleId,pageable).stream().map(exerciseEntity -> {
-//            return exerciseMapper.mapExercise(exerciseEntity);
-//        }).collect(Collectors.toList());
-        return null;
-    }
-
-    @Override
-    public List<Exercise> getExercisesByMuscleAndType(Long muscleId, String type, Pageable pageable) {
-//        return this.exerciseRepository.findByMuscleAndType(muscleId,type,pageable).stream().map(exerciseEntity -> {
-//            return exerciseMapper.mapExercise(exerciseEntity);
-//        }).collect(Collectors.toList());
-        return null;
-    }
-
-    @Override
-    public Exercise updateExercise(Long exerciseId, Exercise updatedExercise) {
-        Optional<ExerciseEntity> exerciseEntityOptional = exerciseRepository.findById(exerciseId);
+    public Exercise updateExercise(Long id, Exercise exercise) {
+        Optional<ExerciseEntity> exerciseEntityOptional = exerciseRepository.findById(id);
 
         if (exerciseEntityOptional.isPresent()) {
-            ExerciseEntity exerciseEntity = exerciseEntityOptional.get();
-
-            exerciseEntity.setName(updatedExercise.getName());
-            exerciseEntity.setDescription(updatedExercise.getDescription());
-            // TODO Actualizar todos los campos de ejercicio
-
-            ExerciseEntity updatedExerciseEntity = exerciseRepository.save(exerciseEntity);
-            return exerciseMapper.mapExercise(updatedExerciseEntity);
+            ExerciseEntity exerciseEntity = exerciseMapper.mapExerciseEntity(exercise);
+            exerciseEntity.setId(id);
+            return exerciseMapper.mapExercise(exerciseRepository.save(exerciseEntity));
         } else {
-            throw new NoSuchElementException("No se encontró el ejercicio con el ID: " + exerciseId);
+            throw new NoSuchElementException("No se encontró el ejercicio con el ID: " + id);
+        }
+    }
+
+    @Override
+    public Exercise createExercise(Exercise exercise) {
+        return exerciseMapper.mapExercise(exerciseRepository.save(exerciseMapper.mapExerciseEntity(exercise)));
+    }
+
+    @Override
+    public void deleteExercise(Long id) {
+        Optional<ExerciseEntity> optionalExerciseEntity = exerciseRepository.findById(id);
+        if (optionalExerciseEntity.isPresent()){
+            exerciseRepository.delete(optionalExerciseEntity.get());
+        } else {
+            throw new NoSuchElementException("No se encontró el ejercicio con el ID: " + id);
         }
     }
 

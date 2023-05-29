@@ -36,27 +36,38 @@ public class ExerciseRestController {
         return ResponseEntity.ok(exerciseService.getExerciseById(id));
     }
 
-    @GetMapping("/type/{type}")
-    public ResponseEntity<?> getExercisesByType(@PathVariable String type,
-                                                @PageableDefault(size = 5) Pageable pageable){
-        return ResponseEntity.ok(exerciseService.getExercisesByType(type,pageable));
-    }
-
-    @GetMapping("/muscle/{muscleId}")
-    public ResponseEntity<?> getExercisesByMuscle(@PathVariable Long muscleId,
-                                                  @PageableDefault(size=5) Pageable pageable){
-        return ResponseEntity.ok(exerciseService.getExercisesByMuscle(muscleId,pageable));
-    }
-
-    @GetMapping("/muscle/{muscleId}/type/{type}")
-    public ResponseEntity<?> getExercisesByMuscleAndType(@PathVariable Long muscleId,
-                                                         @PathVariable String type,
-                                                         @PageableDefault(size=5) Pageable pageable){
-        return ResponseEntity.ok(exerciseService.getExercisesByMuscleAndType(muscleId,type,pageable));
-    }
+//    @GetMapping("/type/{type}")
+//    public ResponseEntity<?> getExercisesByType(@PathVariable String type,
+//                                                @PageableDefault(size = 5) Pageable pageable){
+//        return ResponseEntity.ok(exerciseService.getExercisesByType(type,pageable));
+//    }
+//
+//    @GetMapping("/muscle/{muscleId}")
+//    public ResponseEntity<?> getExercisesByMuscle(@PathVariable Long muscleId,
+//                                                  @PageableDefault(size=5) Pageable pageable){
+//        return ResponseEntity.ok(exerciseService.getExercisesByMuscle(muscleId,pageable));
+//    }
+//
+//    @GetMapping("/muscle/{muscleId}/type/{type}")
+//    public ResponseEntity<?> getExercisesByMuscleAndType(@PathVariable Long muscleId,
+//                                                         @PathVariable String type,
+//                                                         @PageableDefault(size=5) Pageable pageable){
+//        return ResponseEntity.ok(exerciseService.getExercisesByMuscleAndType(muscleId,type,pageable));
+//    }
     @PutMapping("/{id}")
     public ResponseEntity<Exercise> updateExercise(@PathVariable Long id, @RequestBody Exercise exercise){
         return ResponseEntity.ok(exerciseService.updateExercise(id,exercise));
+    }
+
+    @PostMapping
+    public ResponseEntity<?> createExercise(@RequestBody Exercise exercise){
+        return ResponseEntity.ok(exerciseService.createExercise(exercise));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteExercise(@PathVariable Long id){
+        exerciseService.deleteExercise(id);
+        return ResponseEntity.noContent().build();
     }
 
 

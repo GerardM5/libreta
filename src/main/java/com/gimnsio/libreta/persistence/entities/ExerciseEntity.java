@@ -12,7 +12,6 @@ import java.util.Set;
 
 
 @NoArgsConstructor
-@AllArgsConstructor
 @Entity(name="exercises")
 @Data
 public class ExerciseEntity {
