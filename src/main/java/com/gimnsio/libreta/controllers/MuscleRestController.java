@@ -36,7 +36,7 @@ public class MuscleRestController {
 //    @GetMapping("/{id}")
 //    public ResponseEntity<Muscle> obtenerMusculoPorId(@PathVariable Long id) {
 //        Optional<Muscle> musculo = muscleRepository.findById(id);
-//        if (musculo.isPresent()) {//TODO WTF CLASE OPTIONAL
+//        if (musculo.isPresent()) {
 //            return ResponseEntity.ok(musculo.get());
 //        } else {
 //            return ResponseEntity.notFound().build();

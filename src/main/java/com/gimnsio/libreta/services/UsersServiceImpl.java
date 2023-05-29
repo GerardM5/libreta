@@ -27,18 +27,17 @@ public class UsersServiceImpl implements UsersService {
     @Override
     public User getUserById(long id) {
 
-/*        for (User user : users) {
-            if (user.getId() == id) {
-                return user;
-            }
-        }*/
+        Optional<UserEntity> userEntityOptional = userRepository.findById(id);
+        if(userEntityOptional.isPresent()){
 
-        return null;
+            return userMapper.mapUser(userEntityOptional.get());
+        }else {
+            throw new NoSuchElementException("No se encontró el usuario con el ID: " + id);
+        }
     }
 
     @Override
     public List<User> getAllUsers(Pageable pageable) {
-        //return users;
         return userRepository.findAll(pageable).stream().map(userEntity -> {
             return userMapper.mapUser(userEntity);
         }).collect(Collectors.toList());
