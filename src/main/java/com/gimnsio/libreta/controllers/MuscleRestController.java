@@ -15,51 +15,44 @@ import java.util.Optional;
 @RequestMapping("/muscles")
 public class MuscleRestController {
 
-    private MuscleService muscleService;
+    private final MuscleService muscleService;
 
-    public MuscleRestController(MuscleService muscleService ) {
+    public MuscleRestController(MuscleService muscleService) {
 
         this.muscleService = muscleService;
     }
 
     @GetMapping
-    public ResponseEntity<List<Muscle>> obtenerMusculos(@PageableDefault(size = 5)
+    public ResponseEntity<List<Muscle>> getMuscles(@PageableDefault(size = 5)
                                             Pageable pageable) {
         return ResponseEntity.ok(this.muscleService.getAllMuscles(pageable));
     }
 
-//    @PostMapping
-//    public Muscle crearMusculo(@RequestBody Muscle musculo) {
-//        return muscleRepository.save(musculo);
-//    }
-//
-//    @GetMapping("/{id}")
-//    public ResponseEntity<Muscle> obtenerMusculoPorId(@PathVariable Long id) {
+    @PostMapping
+    public Muscle createMuscles(@RequestBody Muscle muscle) {
+        return muscleService.createMuscle(muscle);//muscleRepository.save(musculo);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Muscle> getMuscleById(@PathVariable Long id) {
+        return ResponseEntity.ok(muscleService.getMuscleById(id));
 //        Optional<Muscle> musculo = muscleRepository.findById(id);
 //        if (musculo.isPresent()) {
 //            return ResponseEntity.ok(musculo.get());
 //        } else {
 //            return ResponseEntity.notFound().build();
 //        }
-//    }
-//
-//    @PutMapping("/{id}")
-//    public ResponseEntity<Muscle> actualizarMusculo(@PathVariable Long id, @RequestBody Muscle musculoActualizado) {
-//        Optional<Muscle> musculo = muscleRepository.findById(id);
-//        if (musculo.isPresent()) {
-//            Muscle musculoExistente = musculo.get();
-//            musculoExistente.setName(musculoActualizado.getName());
-//            // Actualizar otros atributos según sea necesario
-//
-//            Muscle musculoActualizadoEntity = muscleRepository.save(musculoExistente);
-//            return ResponseEntity.ok(musculoActualizadoEntity);
-//        } else {
-//            return ResponseEntity.notFound().build();
-//        }
-//    }
-//
-//    @DeleteMapping("/{id}")
-//    public ResponseEntity<Void> eliminarMusculo(@PathVariable Long id) {
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<?> updateMuscle(@PathVariable Long id, @RequestBody Muscle muscle) {
+        return ResponseEntity.ok(muscleService.updateMuscle(id,muscle));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteMuscle(@PathVariable Long id) {
+        muscleService.deleteMuscle(id);
+        return ResponseEntity.noContent().build();
 //        Optional<Muscle> musculo = muscleRepository.findById(id);
 //        if (musculo.isPresent()) {
 //            muscleRepository.delete(musculo.get());
@@ -67,6 +60,6 @@ public class MuscleRestController {
 //        } else {
 //            return ResponseEntity.notFound().build();
 //        }
-//    }
+    }
 }
 

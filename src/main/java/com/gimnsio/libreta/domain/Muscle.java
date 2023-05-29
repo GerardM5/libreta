@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Muscle {
 
-    @NotNull
     private Long id;
     private String name;
     private String image;

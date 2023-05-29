@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Entity(name="muscles_exercises")
 public class ExerciseMuscleEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     @ManyToOne
     @JoinColumn(name = "exercise_id")
