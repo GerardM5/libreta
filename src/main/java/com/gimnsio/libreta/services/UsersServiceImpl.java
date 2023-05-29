@@ -46,7 +46,8 @@ public class UsersServiceImpl implements UsersService {
 
     @Override
     public User createUser(User user) {
-        UserEntity newUserEntity = userRepository.save(userMapper.mapUserEntity(user));
+        UserEntity userEntity = userMapper.mapUserEntity(user);
+        UserEntity newUserEntity = userRepository.save(userEntity);
         return user;
     }
 
@@ -57,14 +58,9 @@ public class UsersServiceImpl implements UsersService {
 
         if (userEntityOptional.isPresent()) {
             UserEntity userEntity = userEntityOptional.get();
-
-            // Actualiza los campos del usuario con los valores proporcionados
-            userEntity.setName(user.getName());
-            userEntity.setEmail(user.getEmail());
-            // ... Actualiza otros campos según tus necesidades ...
-
-            UserEntity updatedUserEntity = userRepository.save(userEntity);
-            return userMapper.mapUser(updatedUserEntity);
+            userEntity = userMapper.mapUserEntity(user);
+            userEntity.setId(id);//TODO Cambiar chapuza
+            return userMapper.mapUser(userRepository.save(userEntity));
         } else {
             throw new NoSuchElementException("No se encontró el usuario con el ID: " + id);
         }

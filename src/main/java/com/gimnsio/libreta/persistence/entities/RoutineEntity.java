@@ -14,7 +14,7 @@ import java.util.List;
 @Entity(name = "routine")
 public class RoutineEntity {
     @Id
-    //@GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
 

@@ -1,6 +1,8 @@
 package com.gimnsio.libreta.persistence.entities;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -12,8 +14,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity(name="muscles")
 public class MuscleEntity {
-    @NotNull
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String image;

@@ -1,5 +1,7 @@
 package com.gimnsio.libreta.domain;
 
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,7 +14,6 @@ import java.util.List;
 @AllArgsConstructor
 public class User {
 
-    @Id
     private Long id;
     private Long role;
     private String name;

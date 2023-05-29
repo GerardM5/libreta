@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 @Entity(name = "routine_exercise")
 public class RoutineExerciseEntity {
     @Id
-    //@GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne

@@ -16,19 +16,17 @@ import java.util.Set;
 @Entity(name="exercises")
 @Data
 public class ExerciseEntity {
-    @NotNull
+
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotNull
+
     private String name;
     private String image;
     private String gif;
     private String video;
     private String description;
-    @NotNull
     private String type;
-    @NotNull
     @ManyToOne
     @JoinColumn(name = "principal_muscle_id")
     private MuscleEntity principalMuscle;
