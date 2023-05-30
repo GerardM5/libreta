@@ -58,24 +58,24 @@ public class RoutineServiceImpl implements RoutineService {
         return routine;
     }
 
-    @Override
-    public Routine updateRoutine(long id, Routine routine) {
-
-        Optional<RoutineEntity> routineEntityOptional= routineRepository.findById(id);
-
-        if(routineEntityOptional.isPresent()){
-            RoutineEntity routineEntity = routineEntityOptional.get();
-
-            // Actualiza los ejercicios de la rutina
-            routineEntity.setExercises(routine.getExercises().stream().map(exercise -> {
-                return exerciseMapper.mapExerciseEntity(exercise);
-            }).collect(Collectors.toList()));
-            // ... Actualiza otros campos según tus necesidades ...
-
-        }
-
-        return routine;
-    }
+//    @Override
+//    public Routine updateRoutine(long id, Routine routine) {
+//
+//        Optional<RoutineEntity> routineEntityOptional= routineRepository.findById(id);
+//
+//        if(routineEntityOptional.isPresent()){
+//            RoutineEntity routineEntity = routineEntityOptional.get();
+//
+//            // Actualiza los ejercicios de la rutina
+//            routineEntity.setExercises(routine.getExercises().stream().map(exercise -> {
+//                return exerciseMapper.mapExerciseEntity(exercise);
+//            }).collect(Collectors.toList()));
+//            // ... Actualiza otros campos según tus necesidades ...
+//
+//        }
+//
+//        return routine;
+//    }
 
     @Override
     public void deleteRoutine(long id) {

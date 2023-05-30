@@ -29,6 +29,7 @@ public class ExerciseEntity {
     @ManyToOne
     @JoinColumn(name = "principal_muscle_id")
     private MuscleEntity principalMuscle;
+
     @ManyToMany
     @JoinTable(
             name = "muscles_exercises",

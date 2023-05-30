@@ -14,7 +14,7 @@ public class Routine {
     @Id
     private Long id;
     private String name;
-    private List<Exercise> exercises;
+    //private List<Exercise> exercises;
     private User creator;
 
 }

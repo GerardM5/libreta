@@ -12,6 +12,6 @@ public interface RoutineService {
     public Routine getRoutineById(long id);
     public List<Routine> getRoutinesByUser(User user);
     public Routine createRoutine(Routine routine);
-    public Routine updateRoutine(long id, Routine routine);
+//    public Routine updateRoutine(long id, Routine routine);
     public void deleteRoutine(long id);
 }

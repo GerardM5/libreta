@@ -20,13 +20,13 @@ public class RoutineEntity {
 
 
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinTable(
-            name = "routine_exercise",
-            joinColumns = @JoinColumn(name = "routine_id"),
-            inverseJoinColumns = @JoinColumn(name = "exercise_id")
-    )
-    private List<ExerciseEntity> exercises;
+//    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+//    @JoinTable(
+//            name = "routine_exercise",
+//            joinColumns = @JoinColumn(name = "routine_id"),
+//            inverseJoinColumns = @JoinColumn(name = "exercise_id")
+//    )
+//    private List<ExerciseEntity> exercises;
 
     // Relación muchos a uno con la clase User
     @ManyToOne
