@@ -19,22 +19,15 @@ public class ExerciseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-
     private String name;
     private String image;
-    private String gif;
     private String video;
     private String description;
-    private String type;
-    @ManyToOne
-    @JoinColumn(name = "principal_muscle_id")
-    private MuscleEntity principalMuscle;
-
     @ManyToMany
     @JoinTable(
             name = "muscles_exercises",
             joinColumns = @JoinColumn(name = "exercise_id"),
             inverseJoinColumns = @JoinColumn(name = "muscle_id")
     )
-    private Set<MuscleEntity> secondaryMuscles;
+    private Set<MuscleEntity> muscles;
 }

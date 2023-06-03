@@ -16,10 +16,7 @@ public class Exercise {
     private Long id;
     private String name;
     private String image;
-    private String gif;
     private String video;
     private String description;
-    private String type;
-    private Muscle principalMuscle;
-    private Set<Muscle> secondaryMuscles;
+    private Set<Muscle> muscles;
 }

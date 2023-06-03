@@ -2,6 +2,7 @@ package com.gimnsio.libreta.services;
 
 import com.gimnsio.libreta.Mapper.ExerciseMapper;
 import com.gimnsio.libreta.domain.Exercise;
+import com.gimnsio.libreta.domain.Muscle;
 import com.gimnsio.libreta.persistence.entities.ExerciseEntity;
 import com.gimnsio.libreta.persistence.repositories.ExerciseRepository;
 import org.springframework.stereotype.Service;
@@ -47,28 +48,12 @@ public class ExerciseServiceImpl implements ExerciseService {
     }
 
 //    @Override
-//    public List<Exercise> getExercisesByType(String type, Pageable pageable) {
-////        return this.exerciseRepository.findByType(type,pageable).stream().map(exerciseEntity -> {
-////            return exerciseMapper.mapExercise(exerciseEntity);
-////        }).collect(Collectors.toList());
-//        return null;
-//    }
-//
-//    @Override
 //    public List<Exercise> getExercisesByMuscle(Long muscleId, Pageable pageable) {
-////        return this.exerciseRepository.findByMuscle(muscleId,pageable).stream().map(exerciseEntity -> {
-////            return exerciseMapper.mapExercise(exerciseEntity);
-////        }).collect(Collectors.toList());
-//        return null;
+//        return this.exerciseRepository.findByMuscle(muscleId,pageable).stream().map(exerciseEntity -> {
+//            return exerciseMapper.mapExercise(exerciseEntity);
+//        }).collect(Collectors.toList());
 //    }
-//
-//    @Override
-//    public List<Exercise> getExercisesByMuscleAndType(Long muscleId, String type, Pageable pageable) {
-////        return this.exerciseRepository.findByMuscleAndType(muscleId,type,pageable).stream().map(exerciseEntity -> {
-////            return exerciseMapper.mapExercise(exerciseEntity);
-////        }).collect(Collectors.toList());
-//        return null;
-//    }
+
 
     @Override
     public Exercise updateExercise(Long id, Exercise exercise) {
@@ -97,6 +82,19 @@ public class ExerciseServiceImpl implements ExerciseService {
             throw new NoSuchElementException("No se encontró el ejercicio con el ID: " + id);
         }
     }
+
+    @Override
+    public List<Exercise> getExercisesByMuscle(Long muscle_id) {
+        return this.exerciseRepository.findByMuscle(muscle_id).stream().map(exerciseEntity -> {
+            return exerciseMapper.mapExercise(exerciseEntity);
+        }).collect(Collectors.toList());
+//        return null;
+    }
+
+//    @Override
+//    public List<Exercise> getExercisesByMuscle(Long muscle_id, Pageable pageable) {
+//        return exerciseRepository.findByMuscle(muscle_id,pageable);
+//    }
 
 
 }

@@ -1,6 +1,7 @@
 package com.gimnsio.libreta.controllers;
 
 import com.gimnsio.libreta.domain.Exercise;
+import com.gimnsio.libreta.domain.Muscle;
 import com.gimnsio.libreta.services.ExerciseService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.data.domain.Pageable;
@@ -42,11 +43,10 @@ public class ExerciseRestController {
 //        return ResponseEntity.ok(exerciseService.getExercisesByType(type,pageable));
 //    }
 //
-//    @GetMapping("/muscle/{muscleId}")
-//    public ResponseEntity<?> getExercisesByMuscle(@PathVariable Long muscleId,
-//                                                  @PageableDefault(size=5) Pageable pageable){
-//        return ResponseEntity.ok(exerciseService.getExercisesByMuscle(muscleId,pageable));
-//    }
+    @GetMapping("/muscle/{muscle_id}")
+    public ResponseEntity<?> getExercisesByMuscle(@PathVariable Long muscle_id){
+        return ResponseEntity.ok(exerciseService.getExercisesByMuscle(muscle_id));
+    }
 //
 //    @GetMapping("/muscle/{muscleId}/type/{type}")
 //    public ResponseEntity<?> getExercisesByMuscleAndType(@PathVariable Long muscleId,

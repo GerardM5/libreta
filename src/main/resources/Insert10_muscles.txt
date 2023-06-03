@@ -1,0 +1,65 @@
+-- Insertar 10 muscles
+INSERT INTO muscles (id, name, image) VALUES
+(1, 'Pecho', 'imagen1.jpg'),
+(2, 'Espalda', 'imagen2.jpg'),
+(3, 'Brazos', 'imagen3.jpg'),
+(4, 'Piernas', 'imagen4.jpg'),
+(5, 'Hombros', 'imagen5.jpg'),
+(6, 'Abdominales', 'imagen6.jpg'),
+(7, 'Glúteos', 'imagen7.jpg'),
+(8, 'Trapecios', 'imagen8.jpg'),
+(9, 'Pantorrillas', 'imagen9.jpg'),
+(10, 'Deltoides', 'imagen10.jpg');
+
+-- Insertar 10 ejercicios
+INSERT INTO exercise (id, name, image, video, description) VALUES
+(1, 'Ejercicio 1', 'imagen1.jpg', 'video1.mp4', 'Descripción del ejercicio 1'),
+(2, 'Ejercicio 2', 'imagen2.jpg', 'video2.mp4', 'Descripción del ejercicio 2'),
+(3, 'Ejercicio 3', 'imagen3.jpg', 'video3.mp4', 'Descripción del ejercicio 3'),
+(4, 'Ejercicio 4', 'imagen4.jpg', 'video4.mp4', 'Descripción del ejercicio 4'),
+(5, 'Ejercicio 5', 'imagen5.jpg', 'video5.mp4', 'Descripción del ejercicio 5'),
+(6, 'Ejercicio 6', 'imagen6.jpg', 'video6.mp4', 'Descripción del ejercicio 6'),
+(7, 'Ejercicio 7', 'imagen7.jpg', 'video7.mp4', 'Descripción del ejercicio 7'),
+(8, 'Ejercicio 8', 'imagen8.jpg', 'video8.mp4', 'Descripción del ejercicio 8'),
+(9, 'Ejercicio 9', 'imagen9.jpg', 'video9.mp4', 'Descripción del ejercicio 9'),
+(10, 'Ejercicio 10', 'imagen10.jpg', 'video10.mp4', 'Descripción del ejercicio 10');
+
+-- Ejercicio 1
+INSERT INTO muscles_exercises (exercise_id, muscle_id) VALUES (1, 1);
+INSERT INTO muscles_exercises (exercise_id, muscle_id) VALUES (1, 5);
+
+-- Ejercicio 2
+INSERT INTO muscles_exercises (exercise_id, muscle_id) VALUES (2, 2);
+INSERT INTO muscles_exercises (exercise_id, muscle_id) VALUES (2, 8);
+
+-- Ejercicio 3
+INSERT INTO muscles_exercises (exercise_id, muscle_id) VALUES (3, 3);
+INSERT INTO muscles_exercises (exercise_id, muscle_id) VALUES (3, 10);
+
+-- Ejercicio 4
+INSERT INTO muscles_exercises (exercise_id, muscle_id) VALUES (4, 1);
+INSERT INTO muscles_exercises (exercise_id, muscle_id) VALUES (4, 4);
+
+-- Ejercicio 5
+INSERT INTO muscles_exercises (exercise_id, muscle_id) VALUES (5, 6);
+INSERT INTO muscles_exercises (exercise_id, muscle_id) VALUES (5, 9);
+
+-- Ejercicio 6
+INSERT INTO muscles_exercises (exercise_id, muscle_id) VALUES (6, 2);
+INSERT INTO muscles_exercises (exercise_id, muscle_id) VALUES (6, 7);
+
+-- Ejercicio 7
+INSERT INTO muscles_exercises (exercise_id, muscle_id) VALUES (7, 3);
+INSERT INTO muscles_exercises (exercise_id, muscle_id) VALUES (7, 5);
+
+-- Ejercicio 8
+INSERT INTO muscles_exercises (exercise_id, muscle_id) VALUES (8, 4);
+INSERT INTO muscles_exercises (exercise_id, muscle_id) VALUES (8, 8);
+
+-- Ejercicio 9
+INSERT INTO muscles_exercises (exercise_id, muscle_id) VALUES (9, 7);
+INSERT INTO muscles_exercises (exercise_id, muscle_id) VALUES (9, 9);
+
+-- Ejercicio 10
+INSERT INTO muscles_exercises (exercise_id, muscle_id) VALUES (10, 1);
+INSERT INTO muscles_exercises (exercise_id, muscle_id) VALUES (10, 10);
