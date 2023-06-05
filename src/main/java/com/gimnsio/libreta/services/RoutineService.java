@@ -10,8 +10,8 @@ public interface RoutineService {
 
     public List<Routine> getAllRoutines(Pageable pageable);
     public Routine getRoutineById(long id);
-    public List<Routine> getRoutinesByUser(User user);
+    public List<Routine> getRoutinesByUserCreator(User user);
     public Routine createRoutine(Routine routine);
-//    public Routine updateRoutine(long id, Routine routine);
+    public Routine updateRoutine(long id, Routine routine);
     public void deleteRoutine(long id);
 }

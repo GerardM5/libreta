@@ -48,7 +48,7 @@ public class RoutineServiceImpl implements RoutineService {
     }
 
     @Override
-    public List<Routine> getRoutinesByUser(User user) {
+    public List<Routine> getRoutinesByUserCreator(User user) {
         return null;
     }
 
@@ -58,24 +58,25 @@ public class RoutineServiceImpl implements RoutineService {
         return routine;
     }
 
-//    @Override
-//    public Routine updateRoutine(long id, Routine routine) {
-//
-//        Optional<RoutineEntity> routineEntityOptional= routineRepository.findById(id);
-//
-//        if(routineEntityOptional.isPresent()){
-//            RoutineEntity routineEntity = routineEntityOptional.get();
-//
-//            // Actualiza los ejercicios de la rutina
-//            routineEntity.setExercises(routine.getExercises().stream().map(exercise -> {
-//                return exerciseMapper.mapExerciseEntity(exercise);
-//            }).collect(Collectors.toList()));
-//            // ... Actualiza otros campos según tus necesidades ...
-//
-//        }
-//
-//        return routine;
-//    }
+    @Override
+    public Routine updateRoutine(long id, Routine routine) {
+
+        Optional<RoutineEntity> routineEntityOptional = routineRepository.findById(id);
+
+        RoutineEntity routineEntity = null;
+        if (routineEntityOptional.isPresent()) {
+            routineEntity = routineEntityOptional.get();
+
+            // Actualiza los ejercicios de la rutina TODO OJO AQUI
+            routineEntity.setExercises(routine.getExercises().stream().map(exerciseMapper::mapExerciseEntity).collect(Collectors.toSet()));
+            // ... Actualiza otros campos según tus necesidades ...
+            routineEntity.setId(id);
+            routineRepository.save(routineEntity);
+
+        }
+
+        return routineMapper.mapRoutine(routineEntity);
+    }
 
     @Override
     public void deleteRoutine(long id) {

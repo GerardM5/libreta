@@ -63,3 +63,61 @@ INSERT INTO muscles_exercises (exercise_id, muscle_id) VALUES (9, 9);
 -- Ejercicio 10
 INSERT INTO muscles_exercises (exercise_id, muscle_id) VALUES (10, 1);
 INSERT INTO muscles_exercises (exercise_id, muscle_id) VALUES (10, 10);
+
+
+--USERS
+
+INSERT INTO users (id, email, name, password, role) VALUES (1, 'usuario1@example.com', 'Usuario 1', 'password1', 1);
+INSERT INTO users (id, email, name, password, role) VALUES (2, 'usuario2@example.com', 'Usuario 2', 'password2', 2);
+INSERT INTO users (id, email, name, password, role) VALUES (3, 'usuario3@example.com', 'Usuario 3', 'password3', 1);
+INSERT INTO users (id, email, name, password, role) VALUES (4, 'usuario4@example.com', 'Usuario 4', 'password4', 2);
+INSERT INTO users (id, email, name, password, role) VALUES (5, 'usuario5@example.com', 'Usuario 5', 'password5', 1);
+INSERT INTO users (id, email, name, password, role) VALUES (6, 'usuario6@example.com', 'Usuario 6', 'password6', 2);
+INSERT INTO users (id, email, name, password, role) VALUES (7, 'usuario7@example.com', 'Usuario 7', 'password7', 1);
+INSERT INTO users (id, email, name, password, role) VALUES (8, 'usuario8@example.com', 'Usuario 8', 'password8', 2);
+INSERT INTO users (id, email, name, password, role) VALUES (9, 'usuario9@example.com', 'Usuario 9', 'password9', 1);
+INSERT INTO users (id, email, name, password, role) VALUES (10, 'usuario10@example.com', 'Usuario 10', 'password10', 2);
+
+--RUTINAS
+
+INSERT INTO routines (id, name, creator) VALUES (1, 'Rutina 1', 1);
+INSERT INTO routines (id, name, creator) VALUES (2, 'Rutina 2', 1);
+INSERT INTO routines (id, name, creator) VALUES (3, 'Rutina 3', 3);
+INSERT INTO routines (id, name, creator) VALUES (4, 'Rutina 4', 4);
+INSERT INTO routines (id, name, creator) VALUES (5, 'Rutina 5', 5);
+INSERT INTO routines (id, name, creator) VALUES (6, 'Rutina 6', 6);
+INSERT INTO routines (id, name, creator) VALUES (7, 'Rutina 7', 7);
+INSERT INTO routines (id, name, creator) VALUES (8, 'Rutina 8', 8);
+INSERT INTO routines (id, name, creator) VALUES (9, 'Rutina 9', 9);
+INSERT INTO routines (id, name, creator) VALUES (10, 'Rutina 10', 10);
+INSERT INTO routines (id, name, creator) VALUES (11, 'Rutina 11', 1);
+INSERT INTO routines (id, name, creator) VALUES (12, 'Rutina 12', 1);
+
+--RUTINAS_EJERCICIOS
+
+INSERT INTO routines_exercises (routine_id, exercise_id) VALUES (4, 8);
+INSERT INTO routines_exercises (routine_id, exercise_id) VALUES (6, 3);
+INSERT INTO routines_exercises (routine_id, exercise_id) VALUES (1, 7);
+INSERT INTO routines_exercises (routine_id, exercise_id) VALUES (9, 5);
+INSERT INTO routines_exercises (routine_id, exercise_id) VALUES (2, 9);
+INSERT INTO routines_exercises (routine_id, exercise_id) VALUES (10, 2);
+INSERT INTO routines_exercises (routine_id, exercise_id) VALUES (3, 6);
+INSERT INTO routines_exercises (routine_id, exercise_id) VALUES (8, 10);
+INSERT INTO routines_exercises (routine_id, exercise_id) VALUES (5, 1);
+INSERT INTO routines_exercises (routine_id, exercise_id) VALUES (7, 4);
+INSERT INTO routines_exercises (routine_id, exercise_id) VALUES (4, 3);
+INSERT INTO routines_exercises (routine_id, exercise_id) VALUES (6, 10);
+INSERT INTO routines_exercises (routine_id, exercise_id) VALUES (1, 9);
+INSERT INTO routines_exercises (routine_id, exercise_id) VALUES (9, 8);
+INSERT INTO routines_exercises (routine_id, exercise_id) VALUES (2, 7);
+INSERT INTO routines_exercises (routine_id, exercise_id) VALUES (10, 6);
+INSERT INTO routines_exercises (routine_id, exercise_id) VALUES (3, 5);
+INSERT INTO routines_exercises (routine_id, exercise_id) VALUES (8, 4);
+INSERT INTO routines_exercises (routine_id, exercise_id) VALUES (5, 3);
+INSERT INTO routines_exercises (routine_id, exercise_id) VALUES (7, 10);
+INSERT INTO routines_exercises (routine_id, exercise_id) VALUES (4, 9);
+INSERT INTO routines_exercises (routine_id, exercise_id) VALUES (6, 8);
+INSERT INTO routines_exercises (routine_id, exercise_id) VALUES (9, 6);
+INSERT INTO routines_exercises (routine_id, exercise_id) VALUES (2, 5);
+INSERT INTO routines_exercises (routine_id, exercise_id) VALUES (10, 4);
+INSERT INTO routines_exercises (routine_id, exercise_id) VALUES (3, 3);

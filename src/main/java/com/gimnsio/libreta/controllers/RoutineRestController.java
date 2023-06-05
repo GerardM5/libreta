@@ -39,10 +39,10 @@ public class RoutineRestController {
         return ResponseEntity.ok(this.routineService.createRoutine(routine));//TODO FALLA
     }
 
-//    @PutMapping("/{id}")
-//    public ResponseEntity<?> updateRoutine(@PathVariable Long id,@RequestBody Routine routine){
-//        return ResponseEntity.ok(this.routineService.updateRoutine(id,routine));//TODO Modificar para que dentro le pase solo X ejercicios y los modifique
-//    }
+    @PutMapping("/{id}")
+    public ResponseEntity<?> updateRoutine(@PathVariable Long id,@RequestBody Routine routine){
+        return ResponseEntity.ok(this.routineService.updateRoutine(id,routine));//TODO Modificar para que dentro le pase solo X ejercicios y los modifique
+    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteRoutine(@PathVariable Long id){
