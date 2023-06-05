@@ -49,4 +49,9 @@ public class RoutineRestController {
         this.routineService.deleteRoutine(id);
         return ResponseEntity.noContent().build();
     }
+
+    @GetMapping("/user/{id}")
+    public ResponseEntity<?> getRoutineByUser(@PathVariable Long id){
+        return ResponseEntity.ok(this.routineService.getRoutinesByUser(id));
+    }
 }
