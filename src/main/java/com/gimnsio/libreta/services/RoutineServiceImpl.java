@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 @Service
 public class RoutineServiceImpl implements RoutineService {
@@ -88,5 +89,15 @@ public class RoutineServiceImpl implements RoutineService {
             throw new NoSuchElementException("No se encontró la rutina con ID: " + id);
         }
 
+    }
+
+    @Override
+    public Set<Routine> getRoutinesByUser(long user_id) {
+        Set<RoutineEntity> routinesEntity = routineRepository.findByUser(user_id);
+        Set<Routine> routines = null;
+        if (!routinesEntity.isEmpty()){
+            routines = routinesEntity.stream().map(routineMapper::mapRoutine).collect(Collectors.toSet());
+        }
+        return routines;
     }
 }
