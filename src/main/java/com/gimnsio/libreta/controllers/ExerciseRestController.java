@@ -24,7 +24,7 @@ public class ExerciseRestController {
 
     @GetMapping
     public ResponseEntity<?> getAllExercises(
-            @PageableDefault(size = 5)
+            @PageableDefault(size = 20)
             Pageable pageable){
 
         return ResponseEntity.ok(this.exerciseService.getAllExercises(pageable));

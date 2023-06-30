@@ -11,8 +11,8 @@ INSERT INTO muscles (id, name, image) VALUES
 (9, 'Pantorrillas', 'imagen9.jpg'),
 (10, 'Deltoides', 'imagen10.jpg');
 
--- Insertar 10 ejercicios
-INSERT INTO exercise (id, name, image, video, description) VALUES
+-- Insertar 40 ejercicios
+INSERT INTO exercises (id, name, image, video, description) VALUES
 (1, 'Ejercicio 1', 'imagen1.jpg', 'video1.mp4', 'Descripción del ejercicio 1'),
 (2, 'Ejercicio 2', 'imagen2.jpg', 'video2.mp4', 'Descripción del ejercicio 2'),
 (3, 'Ejercicio 3', 'imagen3.jpg', 'video3.mp4', 'Descripción del ejercicio 3'),
@@ -22,7 +22,38 @@ INSERT INTO exercise (id, name, image, video, description) VALUES
 (7, 'Ejercicio 7', 'imagen7.jpg', 'video7.mp4', 'Descripción del ejercicio 7'),
 (8, 'Ejercicio 8', 'imagen8.jpg', 'video8.mp4', 'Descripción del ejercicio 8'),
 (9, 'Ejercicio 9', 'imagen9.jpg', 'video9.mp4', 'Descripción del ejercicio 9'),
-(10, 'Ejercicio 10', 'imagen10.jpg', 'video10.mp4', 'Descripción del ejercicio 10');
+(10, 'Ejercicio 10', 'imagen10.jpg', 'video10.mp4', 'Descripción del ejercicio 10'),
+(11, 'Ejercicio 11', 'imagen11.jpg', 'video11.mp4', 'Descripción del ejercicio 11'),
+(12, 'Ejercicio 12', 'imagen12.jpg', 'video12.mp4', 'Descripción del ejercicio 12'),
+(13, 'Ejercicio 13', 'imagen13.jpg', 'video13.mp4', 'Descripción del ejercicio 13'),
+(14, 'Ejercicio 14', 'imagen14.jpg', 'video14.mp4', 'Descripción del ejercicio 14'),
+(15, 'Ejercicio 15', 'imagen15.jpg', 'video15.mp4', 'Descripción del ejercicio 15'),
+(16, 'Ejercicio 16', 'imagen16.jpg', 'video16.mp4', 'Descripción del ejercicio 16'),
+(17, 'Ejercicio 17', 'imagen17.jpg', 'video17.mp4', 'Descripción del ejercicio 17'),
+(18, 'Ejercicio 18', 'imagen18.jpg', 'video18.mp4', 'Descripción del ejercicio 18'),
+(19, 'Ejercicio 19', 'imagen19.jpg', 'video19.mp4', 'Descripción del ejercicio 19'),
+(20, 'Ejercicio 20', 'imagen20.jpg', 'video20.mp4', 'Descripción del ejercicio 20'),
+(21, 'Ejercicio 21', 'imagen21.jpg', 'video21.mp4', 'Descripción del ejercicio 21'),
+(22, 'Ejercicio 22', 'imagen22.jpg', 'video22.mp4', 'Descripción del ejercicio 22'),
+(23, 'Ejercicio 23', 'imagen23.jpg', 'video23.mp4', 'Descripción del ejercicio 23'),
+(24, 'Ejercicio 24', 'imagen24.jpg', 'video24.mp4', 'Descripción del ejercicio 24'),
+(25, 'Ejercicio 25', 'imagen25.jpg', 'video25.mp4', 'Descripción del ejercicio 25'),
+(26, 'Ejercicio 26', 'imagen26.jpg', 'video26.mp4', 'Descripción del ejercicio 26'),
+(27, 'Ejercicio 27', 'imagen27.jpg', 'video27.mp4', 'Descripción del ejercicio 27'),
+(28, 'Ejercicio 28', 'imagen28.jpg', 'video28.mp4', 'Descripción del ejercicio 28'),
+(29, 'Ejercicio 29', 'imagen29.jpg', 'video29.mp4', 'Descripción del ejercicio 29'),
+(30, 'Ejercicio 30', 'imagen30.jpg', 'video30.mp4', 'Descripción del ejercicio 30'),
+(31, 'Ejercicio 31', 'imagen31.jpg', 'video31.mp4', 'Descripción del ejercicio 31'),
+(32, 'Ejercicio 32', 'imagen32.jpg', 'video32.mp4', 'Descripción del ejercicio 32'),
+(33, 'Ejercicio 33', 'imagen33.jpg', 'video33.mp4', 'Descripción del ejercicio 33'),
+(34, 'Ejercicio 34', 'imagen34.jpg', 'video34.mp4', 'Descripción del ejercicio 34'),
+(35, 'Ejercicio 35', 'imagen35.jpg', 'video35.mp4', 'Descripción del ejercicio 35'),
+(36, 'Ejercicio 36', 'imagen36.jpg', 'video36.mp4', 'Descripción del ejercicio 36'),
+(37, 'Ejercicio 37', 'imagen37.jpg', 'video37.mp4', 'Descripción del ejercicio 37'),
+(38, 'Ejercicio 38', 'imagen38.jpg', 'video38.mp4', 'Descripción del ejercicio 38'),
+(39, 'Ejercicio 39', 'imagen39.jpg', 'video39.mp4', 'Descripción del ejercicio 39'),
+(40, 'Ejercicio 40', 'imagen40.jpg', 'video40.mp4', 'Descripción del ejercicio 40');
+
 
 -- Ejercicio 1
 INSERT INTO muscles_exercises (exercise_id, muscle_id) VALUES (1, 1);

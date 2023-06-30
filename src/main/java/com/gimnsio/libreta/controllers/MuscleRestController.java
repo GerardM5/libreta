@@ -23,7 +23,7 @@ public class MuscleRestController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Muscle>> getMuscles(@PageableDefault(size = 5)
+    public ResponseEntity<List<Muscle>> getMuscles(@PageableDefault(size = 20)
                                             Pageable pageable) {
         return ResponseEntity.ok(this.muscleService.getAllMuscles(pageable));
     }

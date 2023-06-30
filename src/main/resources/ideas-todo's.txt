@@ -1,0 +1,5 @@
+HTTPS
+encriptado de contraseñas
+security
+jwt
+DOCKER SECRETS PARA LA CONEXION A LA BD
