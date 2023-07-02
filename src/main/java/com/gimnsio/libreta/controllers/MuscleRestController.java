@@ -3,6 +3,7 @@ package com.gimnsio.libreta.controllers;
 import com.gimnsio.libreta.domain.Muscle;
 import com.gimnsio.libreta.persistence.repositories.MuscleRepository;
 import com.gimnsio.libreta.services.MuscleService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +14,8 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/muscles")
+@Tag(name = "Musculos",
+        description = "CRUD de musculos")
 public class MuscleRestController {
 
     private final MuscleService muscleService;

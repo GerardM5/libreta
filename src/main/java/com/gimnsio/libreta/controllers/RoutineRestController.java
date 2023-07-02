@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/routines")
-@Tag(name = "API GYM",
+@Tag(name = "Rutinas",
         description = "CRUD de Rutinas")
 public class RoutineRestController {
 

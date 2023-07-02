@@ -14,7 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/users")
-@Tag(name = "API GYM",
+@Tag(name = "Usuarios",
         description = "CRUD de usurarios")
 public class UserRestController {
 
