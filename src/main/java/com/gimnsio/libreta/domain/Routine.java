@@ -1,12 +1,10 @@
 package com.gimnsio.libreta.domain;
 
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
 import java.util.Set;
 
 @Data
@@ -18,6 +16,6 @@ public class Routine {
     private String name;
     private Set<Exercise> exercises;
 
-    private User creator;
+    private UserE creator;
 
 }

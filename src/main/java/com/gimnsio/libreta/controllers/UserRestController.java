@@ -1,15 +1,12 @@
 package com.gimnsio.libreta.controllers;
 
-import com.gimnsio.libreta.domain.User;
+import com.gimnsio.libreta.domain.UserE;
 import com.gimnsio.libreta.services.UsersService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 @RestController
@@ -38,13 +35,13 @@ public class UserRestController {
         return ResponseEntity.ok(usersService.getUserById(id));
     }
     @PostMapping
-    public ResponseEntity<?> createUser(@RequestBody User user){
-        return ResponseEntity.ok(usersService.createUser(user));
+    public ResponseEntity<?> createUser(@RequestBody UserE userE){
+        return ResponseEntity.ok(usersService.createUser(userE));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> editUser(@RequestBody User user, @PathVariable Long id){
-        return ResponseEntity.ok(usersService.updateUser(id,user));
+    public ResponseEntity<?> editUser(@RequestBody UserE userE, @PathVariable Long id){
+        return ResponseEntity.ok(usersService.updateUser(id, userE));
     }
 
     @DeleteMapping("{id}")

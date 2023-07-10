@@ -1,13 +1,10 @@
 package com.gimnsio.libreta.persistence.entities;
 
-import com.gimnsio.libreta.domain.Exercise;
-import com.gimnsio.libreta.domain.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
 import java.util.Set;
 
 @Data

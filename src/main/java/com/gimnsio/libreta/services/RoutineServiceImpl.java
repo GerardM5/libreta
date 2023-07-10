@@ -3,9 +3,8 @@ package com.gimnsio.libreta.services;
 import com.gimnsio.libreta.Mapper.ExerciseMapper;
 import com.gimnsio.libreta.Mapper.RoutineMapper;
 import com.gimnsio.libreta.domain.Routine;
-import com.gimnsio.libreta.domain.User;
+import com.gimnsio.libreta.domain.UserE;
 import com.gimnsio.libreta.persistence.entities.RoutineEntity;
-import com.gimnsio.libreta.persistence.entities.UserEntity;
 import com.gimnsio.libreta.persistence.repositories.RoutineRepository;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -49,7 +48,7 @@ public class RoutineServiceImpl implements RoutineService {
     }
 
     @Override
-    public List<Routine> getRoutinesByUserCreator(User user) {
+    public List<Routine> getRoutinesByUserCreator(UserE userE) {
         return null;
     }
 

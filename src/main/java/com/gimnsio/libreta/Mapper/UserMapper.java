@@ -1,8 +1,6 @@
 package com.gimnsio.libreta.Mapper;
 
-import com.gimnsio.libreta.domain.Exercise;
-import com.gimnsio.libreta.domain.User;
-import com.gimnsio.libreta.persistence.entities.ExerciseEntity;
+import com.gimnsio.libreta.domain.UserE;
 import com.gimnsio.libreta.persistence.entities.UserEntity;
 import org.mapstruct.Mapper;
 
@@ -11,8 +9,8 @@ import org.mapstruct.Mapper;
 public interface UserMapper {
 
 
-    public User mapUser(UserEntity userEntity);
+    public UserE mapUser(UserEntity userEntity);
 
-    public UserEntity mapUserEntity(User user);
+    public UserEntity mapUserEntity(UserE userE);
 
 }

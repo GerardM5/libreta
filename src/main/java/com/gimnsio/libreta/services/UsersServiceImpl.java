@@ -1,13 +1,12 @@
 package com.gimnsio.libreta.services;
 
 import com.gimnsio.libreta.Mapper.UserMapper;
-import com.gimnsio.libreta.domain.User;
+import com.gimnsio.libreta.domain.UserE;
 import com.gimnsio.libreta.persistence.entities.UserEntity;
 import com.gimnsio.libreta.persistence.repositories.UserRepository;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
@@ -25,7 +24,7 @@ public class UsersServiceImpl implements UsersService {
     }
 
     @Override
-    public User getUserById(long id) {
+    public UserE getUserById(long id) {
 
         Optional<UserEntity> userEntityOptional = userRepository.findById(id);
         if(userEntityOptional.isPresent()){
@@ -37,27 +36,27 @@ public class UsersServiceImpl implements UsersService {
     }
 
     @Override
-    public List<User> getAllUsers(Pageable pageable) {
+    public List<UserE> getAllUsers(Pageable pageable) {
         return userRepository.findAll(pageable).stream().map(userEntity -> {
             return userMapper.mapUser(userEntity);
         }).collect(Collectors.toList());
     }
 
     @Override
-    public User createUser(User user) {
-        UserEntity userEntity = userMapper.mapUserEntity(user);
+    public UserE createUser(UserE userE) {
+        UserEntity userEntity = userMapper.mapUserEntity(userE);
         UserEntity newUserEntity = userRepository.save(userEntity);
-        return user;
+        return userE;
     }
 
     @Override
-    public User updateUser(long id, User user) {
+    public UserE updateUser(long id, UserE userE) {
 
         Optional<UserEntity> userEntityOptional = userRepository.findById(id);
 
         if (userEntityOptional.isPresent()) {
             UserEntity userEntity = userEntityOptional.get();
-            userEntity = userMapper.mapUserEntity(user);
+            userEntity = userMapper.mapUserEntity(userE);
             userEntity.setId(id);//TODO Cambiar chapuza
             return userMapper.mapUser(userRepository.save(userEntity));
         } else {
