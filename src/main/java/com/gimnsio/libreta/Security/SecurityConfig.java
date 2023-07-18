@@ -1,5 +1,10 @@
-package com.gimnsio.libreta.config;
+package com.gimnsio.libreta.Security;
 
+import com.gimnsio.libreta.Security.filters.JwtAuthenticationFilter;
+import com.gimnsio.libreta.Security.filters.JwtAuthorizationFilter;
+import com.gimnsio.libreta.Security.jwt.JwtUtils;
+import com.gimnsio.libreta.services.UserDetailsServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -7,19 +12,30 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.core.session.SessionRegistry;
-import org.springframework.security.core.session.SessionRegistryImpl;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
+
+
+    UserDetailsServiceImpl userDetailsService;
+
+    JwtUtils jwtUtils;
+
+    JwtAuthorizationFilter authorizationFilter;
+
+    public SecurityConfig(UserDetailsServiceImpl userDetailsService, JwtUtils jwtUtils,JwtAuthorizationFilter authorizationFilter) {
+        this.userDetailsService = userDetailsService;
+        this.jwtUtils = jwtUtils;
+        this.authorizationFilter = authorizationFilter;
+    }
 
     //no esta mal pero dice que mejor otra
 //    @Bean
@@ -64,7 +80,12 @@ public class SecurityConfig {
 //    }
 
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
+    public SecurityFilterChain filterChain(HttpSecurity httpSecurity, AuthenticationManager authenticationManager) throws Exception {
+
+        JwtAuthenticationFilter jwtAuthenticationFilter = new JwtAuthenticationFilter(jwtUtils);
+        jwtAuthenticationFilter.setAuthenticationManager(authenticationManager);
+
+
         return httpSecurity
                 .csrf(config -> config.disable())
                 .authorizeHttpRequests(auth -> {
@@ -74,18 +95,19 @@ public class SecurityConfig {
                 .sessionManagement(session -> {
                     session.sessionCreationPolicy(SessionCreationPolicy.ALWAYS);
                 })
-                .httpBasic()
-                .and().build();
+                .addFilter(jwtAuthenticationFilter)
+                .addFilterBefore(authorizationFilter, UsernamePasswordAuthenticationFilter.class)
+                .build();
     }
 
-    @Bean
-    UserDetailsService userDetailsService() {
-        InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
-        manager.createUser(User.withUsername("admin")
-                .roles()
-                .password("1234").build());
-        return manager;
-    }
+//    @Bean
+//    UserDetailsService userDetailsService() {
+//        InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
+//        manager.createUser(User.withUsername("admin")
+//                .roles()
+//                .password("1234").build());
+//        return manager;
+//    }
 
     @Bean
     PasswordEncoder passwordEncoder() {
@@ -95,11 +117,10 @@ public class SecurityConfig {
     @Bean
     AuthenticationManager authenticationManager(HttpSecurity httpSecurity, PasswordEncoder passwordEncoder) throws Exception {
         return httpSecurity.getSharedObject(AuthenticationManagerBuilder.class)
-                .userDetailsService(userDetailsService())
+                .userDetailsService(userDetailsService)
                 .passwordEncoder(passwordEncoder)
                 .and().build();
 
     }
-
 
 }

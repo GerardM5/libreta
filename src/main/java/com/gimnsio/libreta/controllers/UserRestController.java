@@ -3,9 +3,11 @@ package com.gimnsio.libreta.controllers;
 import com.gimnsio.libreta.domain.UserE;
 import com.gimnsio.libreta.services.UsersService;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 

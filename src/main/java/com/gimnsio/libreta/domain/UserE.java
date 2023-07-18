@@ -13,7 +13,7 @@ import java.util.Set;
 public class UserE {
 
     private Long id;
-    private String name;
+    private String username;
     private String email;
     private String password;
     private Set<Routine> routines;
